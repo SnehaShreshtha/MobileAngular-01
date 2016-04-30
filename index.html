@@ -1,0 +1,44 @@
+<!Doctype html/> 
+ <html> 
+
+ <head> 
+ 	<title>Mobile-Details</title> 
+ 	<meta charset='utf-8' /> 
+ 	<link rel="stylesheet" href="bootstrap.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="app.js"></script> 
+ </head> 
+
+ <body ng-app="firstApp"> 
+
+ <div class="container-fluid" ng-controller="mobileApp as mapp">  
+  
+  <div class="row">
+    
+    <div class="col-md-2">
+   	<form class="search">
+ 		 <label class="form-label1" for="form-input1">Search:</label>
+	   	<input class="form-input" type="text" id="form-input1" ng-model='name'></input>
+   	</form>
+    </div>
+
+    <div class="col-md-10 phones">
+       <ul> 
+          <li class="thumbnail" ng-repeat="product in mapp.products |filter:name">
+             <a href="#" class="phone-images"><img ng-src={{product.imageUrl}}/></a>
+             <a href="#">{{product.name}}</a>
+             <p>{{product.snippet}}</p>
+          </li>  
+       </ul>
+    </div>
+
+   </div>
+  </div>
+ 
+ </div>
+
+ </body> 
+
+ </html> 
+  
