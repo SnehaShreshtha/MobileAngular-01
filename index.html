@@ -13,6 +13,8 @@
  <body ng-app="firstApp"> 
 
  <div class="container-fluid" ng-controller="mobileApp as mapp">  
+
+ <br />
   
   <div class="row">
     
@@ -23,9 +25,19 @@
    	</form>
     </div>
 
+    <div class="col-md-2">
+    <form class="sort">
+     Sort by:
+        <select ng-model="$ctrl.dat">
+          <option value="name">Alphabetical</option>
+          <option value="snippet">Newest</option>
+        </select>
+    </form>
+    </div>
+
     <div class="col-md-10 phones">
        <ul> 
-          <li class="thumbnail" ng-repeat="product in mapp.products |filter:name">
+          <li class="thumbnail" ng-repeat="product in mapp.products |filter:name | orderBy:$ctrl.dat">
              <a href="#" class="phone-images"><img ng-src={{product.imageUrl}}/></a>
              <a href="#">{{product.name}}</a>
              <p>{{product.snippet}}</p>
